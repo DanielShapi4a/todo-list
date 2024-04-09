@@ -18,7 +18,7 @@ function ToDoList() {
     }
     function addTask() {
         if (newTask.trim() !== "") {
-            setTasks(t => [...t, newTask]);
+            setTasks(tasksInList => [...tasksInList, newTask]);
             setNewTask("");
         }
     }
@@ -42,7 +42,7 @@ function ToDoList() {
     }
 
     return (
-        <div className="to-do-list">
+        <div className="to-do-list" style={{flex:"1",justifyContent:"center",justifySelf:"center", width:"900px"}}>
             <h1>To-Do-List</h1>
 
             <div>
@@ -58,7 +58,7 @@ function ToDoList() {
             </div>
             <ol>
                 {tasks.map((task, index) =>
-                    <li key={index}>
+                    <li className="card"  key={index}>
                         <span className="text">{task}</span>
                         <button className="delete-button" onClick={() => deleteTask(index)}>Delete</button>
                         <button className="move-button" onClick={() => moveTaskUp(index)}>👆</button>
